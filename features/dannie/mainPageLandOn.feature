@@ -19,10 +19,13 @@ Feature:User able to land on main page successfully
 
 
         @dan18-2
-        Scenario:Verify that user able to see Design Module
+        Scenario:Verify that user able to see Design Module subpages
 
 
-                And user able to see subpages of Design module
+                When user hovers over the Design module
+                Then user should see "PCBA" subpage under Design module
+                And user should see "Mechanical Design" subpage under Design module
+                And user should see "Embedded Software" subpage under Design module
 
         @dan18-3
         Scenario:Verify that user able to click to subPages of Design Module

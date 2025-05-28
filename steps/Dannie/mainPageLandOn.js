@@ -36,29 +36,69 @@ Given("user is on the main page", async function () {
           await expect(dannieContactPage.aboutModule).toBeVisible();
          });
 
-Given(
-  "user able to see the Design,Manufacturing and About module on the main page",
-  async function () {
-    /*
-    await page.goto("https://www.dannie.cc/");
-    await page.waitForTimeout(3000);
-
-    let currentUrl = page.url();
-
-    const expectedUrl = "https://www.dannie.cc/";
-
-    expect(currentUrl).toStrictEqual(expectedUrl);
-
-    await dannieContactPage.designButton.isVisible();
-    await dannieContactPage.manufakturingButton.isVisible();
-    await dannieContactPage.aboutModule.isVisible();
-    */
-  }
-    
-);
 
 //Scenario Desing Module
+ 
+       
+         When('user hovers over the Design module', async function () {
+           
+          const designModule = page.getByText("DESIGN").first();
+           await expect(designModule).toBeVisible();
+           await designModule.hover();
+           await page.waitForTimeout(3000); 
 
+
+         });
+
+
+         
+         Then(
+           'user should see "PCBA" subpage under Design module',async function () {
+            
+            await (page.getByText("DESIGN").first()).hover();
+            await page.waitForTimeout(3000);
+              await expect(page.getByRole("link", { name: "PCBA Design", exact: true }).first()).toBeVisible();
+
+              
+      
+            
+         });
+
+   
+
+         Then(
+           'user should see "Mechanical Design" subpage under Design module',
+           async function () {
+            
+             await page.getByText("DESIGN").first().hover();
+              await page.waitForTimeout(3000);
+             await expect(
+               page
+                 .getByRole("link", { name: "Mechanical Design", exact: true })
+                 .first()
+             ).toBeVisible();
+
+             
+           }
+         );
+
+   
+
+         Then(
+           'user should see "Embedded Software" subpage under Design module',
+           async function () {
+            
+             await page.getByText("DESIGN").first().hover();
+              await page.waitForTimeout(3000);
+             await expect(
+               page
+                 .getByRole("link", { name: "Embedded Software", exact: true })
+                 .first()
+             ).toBeVisible();
+           }
+         );
+
+         /*
 Given("user able to see subpages of Design module", async function () {
   await page.goto("https://www.dannie.cc/");
   await page.waitForTimeout(3000);
@@ -125,7 +165,10 @@ Given(
 
     await dannieContactPage.ContactUsButton.scrollIntoViewIfNeeded();
   }
-);
+    );
+
+  */
+
 
 Given(
   "user able to see MechanicalPage under the Design module and click it",
