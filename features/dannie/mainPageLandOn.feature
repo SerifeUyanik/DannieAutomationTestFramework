@@ -1,8 +1,8 @@
 @dan18
 Feature:User able to land on main page successfully
-As a user
-I want to navigate through the main page modules
-So that I can access different sections of the website
+        As a user
+        I want to navigate through the main page modules
+        So that I can access different sections of the website
 
         Background:
                 Given user is on the main page
@@ -13,7 +13,9 @@ So that I can access different sections of the website
         Scenario:Verify that user is on the main page
 
 
-                And user able to see the Design,Manufacturing and About module on the main page
+                Then user should see the Design module on the main page
+                And user should see the Manufacturing module on the main page
+                And user should see the About module on the main page
 
 
         @dan18-2

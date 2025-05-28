@@ -14,28 +14,32 @@ Given("user is on the main page", async function () {
 
   await dannieContactPage.navigateToMainPage();
 
-  /*
-  await page.goto("https://www.dannie.cc/");
-  await page.waitForTimeout(3000);
-
-  let currentTitle = await page.title();
-
-  const expectedTitle =
-    "DANNIE.CC Electronics Design and Manufacturing Services";
-
-  expect(currentTitle).toStrictEqual(expectedTitle);
-
-  let currentUrl = page.url();
-
-  const expectedUrl = "https://www.dannie.cc/";
-
-  expect(currentUrl).toStrictEqual(expectedUrl);
-  */
+  
 });
+
+
+         Then('user should see the Design module on the main page', async function () {
+           await expect(dannieContactPage.designButton).toBeVisible();
+           
+         });
+
+   
+
+         Then('user should see the Manufacturing module on the main page', async function () {
+            await expect(dannieContactPage.manufakturingButton).toBeVisible();
+         });
+
+  
+
+         Then('user should see the About module on the main page', async function () {
+           
+          await expect(dannieContactPage.aboutModule).toBeVisible();
+         });
 
 Given(
   "user able to see the Design,Manufacturing and About module on the main page",
   async function () {
+    /*
     await page.goto("https://www.dannie.cc/");
     await page.waitForTimeout(3000);
 
@@ -48,7 +52,9 @@ Given(
     await dannieContactPage.designButton.isVisible();
     await dannieContactPage.manufakturingButton.isVisible();
     await dannieContactPage.aboutModule.isVisible();
+    */
   }
+    
 );
 
 //Scenario Desing Module
