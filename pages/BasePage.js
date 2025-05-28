@@ -49,6 +49,20 @@ export class BasePage  {
   
 
 
-  
+  // Helper function for navigation
+ async navigateToMainPage() {
+   // Constants
+   const BASE_URL = "https://www.dannie.cc/";
+   const EXPECTED_TITLE =
+     "DANNIE.CC Electronics Design and Manufacturing Services";
+   await this.page.goto(BASE_URL);
+   await this.page.waitForTimeout(3000);
+
+   // Verify we're on the correct page
+   const currentUrl = this.page.url();
+   const currentTitle = await this.page.title();
+   expect(currentUrl).toBe(BASE_URL);
+   expect(currentTitle).toBe(EXPECTED_TITLE);
+ }
 
 }
