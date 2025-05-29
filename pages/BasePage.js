@@ -34,20 +34,13 @@ export class BasePage  {
     this.ContactUsButton = page.locator("//span[text()='CONTACT US']"
 
     );
-  }
 
-
-  
-  async login(){
-    const code = Buffer.from(`${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`).toString("base64");
-    await this.page.setExtraHTTPHeaders({Authorization: `Basic ${code}`,});
-    await this.page.goto(process.env.SEP_URL);
-    BrowserUtility.verify_title(this.page, 'Checkout | Cydeo');
-    await this.page.waitForTimeout(700);
+    this.electronicsDesignHeader = page.locator(
+      "//span[text()='Electronics Design and']"
+    );
   }
 
   
-
 
   // Helper function for navigation
  async navigateToMainPage() {
@@ -57,6 +50,9 @@ export class BasePage  {
      "DANNIE.CC Electronics Design and Manufacturing Services";
    await this.page.goto(BASE_URL);
    await this.page.waitForTimeout(3000);
+   await this.page
+     .locator("//span[text()='Electronics Design and']")
+     .waitFor({ state: "visible" });
 
    // Verify we're on the correct page
    const currentUrl = this.page.url();

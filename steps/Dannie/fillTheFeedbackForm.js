@@ -17,7 +17,7 @@ Given("user is on the contact page", async function () {
 Given(
   "user able to see feedback form text on the contact page",
   async function () {
-    await page.goto("https://www.dannie.cc/contacts");
+    //await page.goto("https://www.dannie.cc/contacts");
     await page.waitForTimeout(3000);
 
     await dannieContactPage.feedbackText.isVisible();
@@ -25,7 +25,7 @@ Given(
 );
 
 Given("user able to fill the form with valid credentials", async function () {
-  await page.goto("https://www.dannie.cc/contacts");
+  //await page.goto("https://www.dannie.cc/contacts");
   await page.waitForTimeout(3000);
 
   await BrowserUtility.enter_input(
@@ -41,7 +41,7 @@ Given("user able to fill the form with valid credentials", async function () {
 });
 
 Then("user able to submit the form successfully", async function () {
-  await page.goto("https://www.dannie.cc/contacts");
+  //await page.goto("https://www.dannie.cc/contacts");
   await page.waitForTimeout(3000);
 
   await BrowserUtility.enter_input(
