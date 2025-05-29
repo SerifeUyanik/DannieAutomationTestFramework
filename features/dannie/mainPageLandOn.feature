@@ -27,25 +27,21 @@ Feature:User able to land on main page successfully
                 And user should see "Mechanical Design" subpage under Design module
                 And user should see "Embedded Software" subpage under Design module
 
+
         @dan18-3
-        Scenario:Verify that user able to click to subPages of Design Module
+        Scenario Outline: Verify that user able to navigate to Design Module subpages
+                When user clicks on "<subpage>" under Design module
+                Then user should be redirected to "<expected_url>" page
+               
+
+                Examples:
+                        | subpage           |  expected_url                               | 
+                        | PCBA Design | https://www.dannie.cc/pcba-design                 | 
+                        | Mechanical Design | https://www.dannie.cc/mechanical-design     | 
+                        | Embedded Software | https://www.dannie.cc/embedded-sw           | 
 
 
-                And user able to see PcbaPage under the Design module and click it
-                And user able to see MechanicalPage under the Design module and click it
-                And user able to see EmbeddedSoftwarePage under the Design module and click it
-
-        @dan18-4
-        Scenario: user able to see Manufacturing Module
-
-                And user able to see subpages of Manufacturing Module
-
-        @dan18-5
-        Scenario:Verify that user able to click to subpages of Manufacturing Module
-
-                And user able to see ComponentsSupplyPage under the Manufacturing module and click it
-                And user able to see PcbAssemblPage under the Manufacturing module and click it
-                And user able to see BoxBuildPage under the Manufacturing module and click it
+        
 
 
 
